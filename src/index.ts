@@ -2,10 +2,12 @@ import * as express from "express"
 import * as bodyParser from "body-parser"
 import { Request, Response } from "express"
 import { AppDataSource } from "./data-source"
-import { Routes } from "./routes"
+import { Routes } from "./routes/routes"
 import { User } from "./entity/User"
 import * as morgan from 'morgan';
 import { port } from "./config"
+import { Patient } from "./entity/Patient"
+import { Doctor } from "./entity/Doctor"
 
 // Middleware function to handle all errors (returns better error messages)
 function handleError(error, request, response, next) {
@@ -16,7 +18,7 @@ AppDataSource.initialize().then(async () => {
 
     // create express app
     const app = express();
-    app.use(morgan('tiny'));
+    app.use(morgan('tiny')); // Log status codes from requests
     app.use(bodyParser.json());
 
     // register express routes from defined application routes
@@ -34,7 +36,7 @@ AppDataSource.initialize().then(async () => {
     app.use(handleError);
 
     // start express server
-    app.listen(port)
+    app.listen(port);
 
     // insert new users for test
     await AppDataSource.manager.save(
