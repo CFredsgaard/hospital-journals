@@ -1,5 +1,6 @@
 import { Entity, PrimaryColumn, Column, PrimaryGeneratedColumn, BaseEntity } from "typeorm"
 
+// The patient represents a medical journal
 @Entity('patients')
 export class Patient extends BaseEntity {
     @PrimaryGeneratedColumn()
