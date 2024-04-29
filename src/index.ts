@@ -2,12 +2,10 @@ import * as express from "express"
 import * as bodyParser from "body-parser"
 import { Request, Response } from "express"
 import { AppDataSource } from "./data-source"
-import { Routes } from "./routes/routes"
+import { Routes } from "./routes"
 import { User } from "./entity/User"
 import * as morgan from 'morgan';
 import { port } from "./config"
-import { Patient } from "./entity/Patient"
-import { Doctor } from "./entity/Doctor"
 
 // Middleware function to handle all errors (returns better error messages)
 function handleError(error, request, response, next) {
