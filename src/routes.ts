@@ -58,3 +58,21 @@ export const Routes = [{
     action: "createDoctor"
 },
 
+// Department Routes
+{
+    method: "get",
+    route: "/departments",
+    controller: DepartmentController,
+    action: "getAllDepartments"
+}, {
+    method: "get",
+    route: "/departments/:id",
+    controller: DepartmentController,
+    action: "getDepartmentById"
+}, {
+    method: "post",
+    route: "/departments",
+    controller: DepartmentController,
+    action: "createDepartment"
+},
+
