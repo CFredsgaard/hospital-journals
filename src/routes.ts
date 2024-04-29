@@ -76,3 +76,11 @@ export const Routes = [{
     action: "createDepartment"
 },
 
+// Admission Routes
+{
+    method: "post",
+    route: "/admissions",
+    controller: AdmissionController,
+    action: "createAdmission"
+}
+]
