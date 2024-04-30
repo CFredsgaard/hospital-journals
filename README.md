@@ -22,10 +22,9 @@ Clone the repo and navigate into the directory:
 
 ## Run the project
 
-1. Run `docker compose up -d`
-2. Go to (http://localhost:3000) in your webbrowser or Postman
-3. Change the url path to use the different get requests
-4. To create post requests use a tool like Postman
+1. Run `docker compose up`
+2. copy the url (http://localhost:3000) into Postman
+3. Setup the different POST and GET requests using their descriptions below
 
 
 ## Post Requests
