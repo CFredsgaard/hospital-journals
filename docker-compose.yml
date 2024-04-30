@@ -7,8 +7,6 @@ services:
       - POSTGRES_PASSWORD=postgres
     ports:
       - '5432:5432'
-    #volumes:
-      #- data:/var/lib/postgresql/data
   
   pg-admin:
     image: dpage/pgadmin4
@@ -20,5 +18,7 @@ services:
     ports:
       - '5050:5050'
 
-#volumes:
-  #data:
+  node:
+    build: . 
+    ports:
+      - '3000:3000'
