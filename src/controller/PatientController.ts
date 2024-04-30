@@ -10,7 +10,6 @@ export class PatientController {
     private admissionRepository = AppDataSource.getRepository(Admission);
     private doctorRepository = AppDataSource.getRepository(Doctor);
 
-
     async getPatient(request: Request, response: Response, next: NextFunction) {
         const ssn = request.params.ssn;
         const doctorId = request.params.doctorId;
@@ -73,6 +72,14 @@ export class PatientController {
     async createPatient(request: Request, response: Response, next: NextFunction) {
         const { ssn, firstName, lastName } = request.body;
 
+        // Check if patient with given ssn already exists
+        const patientExists = await this.patientRepository.findOne({ where: { ssn: ssn } })
+
+        if (patientExists) {
+            return `A patient with the SSN '${ssn}' already exists. The SSN must be unique for each patient`;
+        }
+
+        // Create the patient
         const patient = Object.assign(new Patient(), {
             ssn, firstName, lastName
         })
